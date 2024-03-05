@@ -20,11 +20,14 @@ const sort = { last_message_at: -1 };
 const HelloReact = () => {
   const [client, setClient] = useState(null);
 
+  const CustomListContainer = (props) => {
+    
+  };
 
   let chatUserId, chatUserToken, chatUserName;
-  chatUserId = 'cyril'
-  chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY3lyaWwifQ.vGRZ_wrxRJpHhV1Ppymep5ztg78irTHT6h_ahDyx4cM'
-  chatUserName= 'cyril'
+  chatUserId = 'cyril';
+  chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY3lyaWwifQ.vGRZ_wrxRJpHhV1Ppymep5ztg78irTHT6h_ahDyx4cM';
+  chatUserName= 'cyril';
 
   useEffect(() => {
     const newClient = new StreamChat("bbrrz8hzzqsz");
@@ -38,11 +41,10 @@ const HelloReact = () => {
 
     newClient.connectUser(
       {
-        id: chatUserId, // change id name, look at comment below
-        name: chatUserName, // change name, look at comment below
+        id: chatUserId,
+        name: chatUserName,
       },
       chatUserToken
-      // change token, look at comment below
     );
 
     return () => {
@@ -54,28 +56,33 @@ const HelloReact = () => {
   if (!client) return null;
 
   return (
-
+    <>
+    <button onClick={() => alert('Button clicked!')}style={{zIndex: '2', padding: '8px', background: '#fff', color: '#ff0066', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Click Me</button>
+    
     <Chat client={client}>
-      <div className="inbox">
-      <div className="channel-list">
-        <ChannelList filters={filters} sort={sort} options={options} />
+      <div className="inbox" style={{ display: 'flex', height: '74vh' }}>
+        <div className="channel-list" style={{flex: '1', backgroundColor: '#ff0066',paddingBottom: '4px',paddingTop: '4px',paddingLeft: '4px', height:'477px',borderRadius:'9px'}}>
+          <ChannelList filters={filters} sort={sort} options={options} />
+        </div>
+        <div className="main-chat" style={{ flex: '1', backgroundColor: '#ff0066',padding: '5px', height:'477px',borderRadius:'9px' }}>
+          <Channel>
+            <Window>
+              <div className="channelHeader" style={{flex: '1', background: '#ff0066', paddingBottom: '4px'}}>
+              <ChannelHeader /></div>
+              <MessageList />
+              <MessageInput />
+            </Window>
+            <Thread />
+          </Channel>
+        </div>
       </div>
-      <div className="main-chat">
-        <Channel>
-          <Window>
-            <ChannelHeader />
-            <MessageList />
-            <MessageInput />
-          </Window>
-          <Thread />
-        </Channel>
-      </div>
-    </div>
     </Chat>
+    </>
   );
 };
+
 export default HelloReact;
 
 if (document.getElementById('hello-react')) {
-    ReactDOM.render(<HelloReact />, document.getElementById('hello-react'));
+  ReactDOM.render(<HelloReact />, document.getElementById('hello-react'));
 }
