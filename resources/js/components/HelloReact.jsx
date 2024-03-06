@@ -57,14 +57,23 @@ const HelloReact = () => {
 
   return (
     <>
-    <button onClick={() => alert('Button clicked!')}style={{zIndex: '2', padding: '8px', background: '#fff', color: '#ff0066', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Click Me</button>
-    
+    <button onClick={() => alert('Button clicked!')}style={{display:'flex', justifyContent:'center', alignItems:'center', padding: '15px', background: '#fff', color: '#ff0066', border: '5x solid #fff', borderRadius: '5px', cursor: 'pointer' }}>Click Me</button>
+    <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Messages</a>
+
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">User</a>
+  </li>
+</ul>
+
     <Chat client={client}>
       <div className="inbox" style={{ display: 'flex', height: '74vh' }}>
-        <div className="channel-list" style={{flex: '1', backgroundColor: '#ff0066',paddingBottom: '4px',paddingTop: '4px',paddingLeft: '4px', height:'477px',borderRadius:'9px'}}>
+        <div className="channel-list" style={{flex: '1', backgroundColor: '#fff',paddingBottom: '4px',paddingTop: '4px',paddingLeft: '4px', height:'477px',borderRadius:'9px'}}>
           <ChannelList filters={filters} sort={sort} options={options} />
         </div>
-        <div className="main-chat" style={{ flex: '1', backgroundColor: '#ff0066',padding: '5px', height:'477px',borderRadius:'9px' }}>
+        <div className="main-chat" style={{ flex: '1', backgroundColor: '#fff',padding: '5px', height:'477px',borderRadius:'9px' }}>
           <Channel>
             <Window>
               <div className="channelHeader" style={{flex: '1', background: '#ff0066', paddingBottom: '4px'}}>
@@ -77,6 +86,9 @@ const HelloReact = () => {
         </div>
       </div>
     </Chat>
+
+
+
     </>
   );
 };

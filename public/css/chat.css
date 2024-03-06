@@ -1,0 +1,47 @@
+
+
+.button-click-me {
+    z-index: 2;
+    padding: 8px;
+    background: #fff;
+    color: #ff0066;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  .inbox {
+    display: flex;
+    height: 74vh;
+  }
+  
+
+  .channel-list {
+    flex: 1;
+    background-color: #7c7c7c;
+    padding: 4px;
+    height: 477px;
+    border-radius: 9px;
+  }
+  
+
+  .main-chat {
+    flex: 1;
+    background-color: #00c3ff;
+    padding: 5px;
+    height: 477px;
+    border-radius: 9px;
+  }
+
+  .channelHeader {
+    flex: 1;
+    background: #1e045a;
+    padding-bottom: 4px;
+  }
+  
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
